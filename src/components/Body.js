@@ -1,9 +1,10 @@
 import CardComponent from "./Card";
+import Shimmer from "./Shimmer";
 // import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
 
 const Body = () => {
-
+  // to maintain the original state
   let [filteredResData, setFilterResData] = useState([]);
   let [count, setCount] = useState(true);
   let [listOfRestraunt, setListOfRestraunt] = useState([]);
@@ -20,6 +21,12 @@ const Body = () => {
     setListOfRestraunt(jsonData.recipes);
     setFilterResData(jsonData.recipes);
 
+  }
+
+  if(listOfRestraunt.length === 0){
+    // return <h1>Loading....</h1>;
+    // apart from using loader compnent we will use shimmer UI or wireframe kinda componet for better UX.
+    return <Shimmer />
   }
 
   return (
