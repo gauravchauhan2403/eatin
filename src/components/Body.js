@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   // to maintain the original state
-  let [filteredResData, setFilterResData] = useState([]);
-  let [count, setCount] = useState(true);
-  let [listOfRestraunt, setListOfRestraunt] = useState([]);
+  const [filteredResData, setFilterResData] = useState([]);
+  // let [count, setCount] = useState(true);
+  const [listOfRestraunt, setListOfRestraunt] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -23,15 +24,33 @@ const Body = () => {
 
   }
 
-  if(listOfRestraunt.length === 0){
-    // return <h1>Loading....</h1>;
-    // apart from using loader compnent we will use shimmer UI or wireframe kinda componet for better UX.
-    return <Shimmer />
-  }
+  // if(listOfRestraunt.length === 0){
+  //   // return <h1>Loading....</h1>;
+  //   // apart from using loader compnent we will use shimmer UI or wireframe kinda componet for better UX.
+  //   return <Shimmer />
+  // }
 
-  return (
+  // condtional rendering
+  return listOfRestraunt.length === 0 ? <Shimmer /> : (
     <>
-      <button onClick={(count) ? (
+    <input
+      type="text"
+      className="input_search"
+      value={searchText}
+      onChange={(e)=>{setSearchText(e.target.value)}}
+    />
+    <button className="search_Button" 
+      onClick={() => { 
+        const filteredResData = listOfRestraunt.filter((res) =>
+          res.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+        console.log(filteredResData)
+        console.log(searchText)
+        setFilterResData(filteredResData)}}
+      style={{ border: "1px solid white", cursor: "pointer"}} >
+      Search
+    </button>
+      {/* <button onClick={(count) ? (
         () => {           // for filteringout data above rating 4
         const filterData = listOfRestraunt.filter((res) => res.rating > 4);
         setListOfRestraunt(filterData);
@@ -45,9 +64,9 @@ const Body = () => {
         style={{ border: "1px solid white", cursor: "pointer"}}
       >
         {(count) ? "Best restraunt" : "All restraunt"}
-      </button>
+      </button> */}
       <div className="body_container">
-        {listOfRestraunt.map((restraunt) => (
+        {filteredResData.map((restraunt) => (
           <CardComponent key={restraunt.id} resData={restraunt} />
         ))}  
       </div>
