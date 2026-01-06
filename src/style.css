@@ -27,14 +27,15 @@ html {
 }
 
 .card {
-  margin: 10px;
+  margin: 5px;
   padding: 4px;
   background: #232222ff;
+  width: 200px;
 }
 
 .card_img {
   height: 150px;
-  width: 2-0px;
+  width: 100%;
 }
 
 .body_container {

@@ -4,11 +4,12 @@ const CardComponent = (props) => {
 
   return (
   <div className="card">
-    <img className="card_img" alt="foodImg" src ={resData.img} />
-    <h3>{resData.resname}</h3>
-    <h3>{resData.cusine.join(",")}</h3>
-    <h4>{resData.avgRating} stars</h4>
-    <h4>{resData.time} minutes</h4>
+    <img className="card_img" alt="foodImg" src ={resData.image} />
+    <h3>{resData.name}</h3>
+    <h3>{resData.cuisine}</h3>
+    {/* <h3>{resData.cusine.join(",")}</h3> */}
+    <h4>{resData.rating} stars</h4>
+    <h4>{resData.prepTimeMinutes} minutes</h4>
   </div>
   )
 }
