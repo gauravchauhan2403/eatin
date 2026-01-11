@@ -1,5 +1,6 @@
 import CardComponent from "./Card";
 import Shimmer from "./Shimmer";
+import { Link } from 'react-router';
 // import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
 
@@ -17,7 +18,7 @@ const Body = () => {
   const fetchData = async() =>  {
     const data = await fetch("https://dummyjson.com/recipes");
     const jsonData = await data.json();
-    // console.log(jsonData)
+    console.log(jsonData)
 
     setListOfRestraunt(jsonData.recipes);
     setFilterResData(jsonData.recipes);
@@ -44,8 +45,8 @@ const Body = () => {
         const filteredResData = listOfRestraunt.filter((res) =>
           res.name.toLowerCase().includes(searchText.toLowerCase())
         );
-        console.log(filteredResData)
-        console.log(searchText)
+        // console.log(filteredResData)
+        // console.log(searchText)
         setFilterResData(filteredResData)}}
       style={{ border: "1px solid white", cursor: "pointer"}} >
       Search
@@ -67,8 +68,10 @@ const Body = () => {
       </button> */}
       <div className="body_container">
         {filteredResData.map((restraunt) => (
-          <CardComponent key={restraunt.id} resData={restraunt} />
-        ))}  
+          <Link className="linktag" key={restraunt.id} to={'/ingredients/'+ restraunt.id}>
+            <CardComponent resData={restraunt} />
+          </Link>
+        ))}
       </div>
     </>
   )

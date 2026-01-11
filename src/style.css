@@ -3,6 +3,11 @@ html {
   height: 100%;
 }
 
+.linktag {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
 .head_container {
   width: 100%;
   height: 90px;
@@ -24,6 +29,15 @@ html {
 .nav_list > li {
   padding: 6px;
   font-size: 18px;
+}
+
+.login_btn {
+  color: #f4f4f4;
+  border: .5px solid black;
+  border-radius: 10px;
+  height: 35px;
+  width: 70px;
+  font-size: 15px; 
 }
 
 .card {
