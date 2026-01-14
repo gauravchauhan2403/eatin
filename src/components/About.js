@@ -34,9 +34,9 @@ class About extends React.Component{
   render() {
     return(
       <div className='Container'>
-        <span>Name: Gaurav</span>
-        <span>location: Delhi</span>
-        <button className="endore" onClick = {()=>{
+        <p>Name: Gaurav</p>
+        <p>location: Delhi</p>
+        <button className="endore" style={{background: this.state.endorse ? "green" : "none" }} onClick = {()=>{
           this.setState({endorse: !this.state.endorse});
         }}
         >{this.state.endorse ? "Endorsed" : "Endorse"}</button>

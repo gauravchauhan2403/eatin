@@ -99,5 +99,15 @@ html {
   background: #413f3fff;
 }
 
+.Container {
+  font-size: 16px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  background-color: #3e3e3eff;
+  border: 1px white solid;
+}
+
 
 
