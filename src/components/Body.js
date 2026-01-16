@@ -1,4 +1,4 @@
-import CardComponent from "./Card";
+import CardComponent, {withPromotedCardComp} from "./Card";
 import Shimmer from "./Shimmer";
 import { Link } from 'react-router';
 // import resData from "../utils/mockData";
@@ -10,6 +10,8 @@ const Body = () => {
   // let [count, setCount] = useState(true);
   const [listOfRestraunt, setListOfRestraunt] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const PromotedCardComp = withPromotedCardComp(CardComponent);
 
   useEffect(() => {
     fetchData();
@@ -69,7 +71,7 @@ const Body = () => {
       <div className="body_container">
         {filteredResData.map((restraunt) => (
           <Link className="linktag" key={restraunt.id} to={'/ingredients/'+ restraunt.id}>
-            <CardComponent resData={restraunt} />
+            {(restraunt.id % 4 === 0) ? <PromotedCardComp resData={restraunt} /> : <CardComponent resData={restraunt} />}
           </Link>
         ))}
       </div>

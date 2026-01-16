@@ -14,4 +14,16 @@ const CardComponent = (props) => {
   )
 }
 
+// higher order component (Pure function), it enhances the component without modifying it.
+export const withPromotedCardComp = (CardComponent) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute p-1 m-2 bg-black text-white "> Promoted </label>
+        <CardComponent {...props} />
+      </div>
+    );
+  };
+};
+
 export default CardComponent;
