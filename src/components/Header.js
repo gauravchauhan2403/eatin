@@ -2,6 +2,7 @@
 const logo = new URL("../../assets/images.jpeg", import.meta.url).href;
 import { useState} from "react";
 import { Link } from "react-router";
+import Grocery from "./Grocery";
 
 const Header = () => {
   const [toggleBtn, setToggleBtn] = useState(true);
@@ -16,6 +17,7 @@ const Header = () => {
       <li><Link className="linktag" to="./">Home</Link></li>
       <li><Link className="linktag" to="./about">AboutUs</Link></li>
       <li><Link className="linktag" to="./contact">ContactUs</Link></li>
+      <li><Link className="linktag" to="./grocery">Grocery</Link></li>
       <li>Cart</li>
       <button className="login_btn" onClick={handleClick}>{toggleBtn ? "Login": "Logout"}</button>
     </ul>

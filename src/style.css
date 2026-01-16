@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 html {
   color-scheme: light dark;
   height: 100%;
@@ -33,11 +35,11 @@ html {
 
 .login_btn {
   color: #f4f4f4;
-  border: .5px solid black;
+  border: 0.5px solid black;
   border-radius: 10px;
   height: 35px;
   width: 70px;
-  font-size: 15px; 
+  font-size: 15px;
 }
 
 .card {
@@ -108,6 +110,3 @@ html {
   background-color: #3e3e3eff;
   border: 1px white solid;
 }
-
-
-

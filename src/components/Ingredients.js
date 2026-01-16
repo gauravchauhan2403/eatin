@@ -3,7 +3,9 @@ import useIngredientMenu from "../utils/useIngredientMenu";
 
 
 const Ingredients = () => {
-  let Items = useIngredientMenu();  
+  // custom hook for fetching ingredients API 
+  let Items = useIngredientMenu();
+
   return ( Items.length === 0 ? <div>Loading...</div> : (
 
     <>
