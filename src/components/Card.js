@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 // const CardComponent = ({resData}) => {     /** this is destructuring on the fly */
 const CardComponent = (props) => {
   const {resData} = props;              /**destructuring of props object, here resData is itself a object */
+
+  const { userLoggedIn } = useContext(UserContext);
+
 
   return (
   <div className="card">
@@ -10,6 +16,7 @@ const CardComponent = (props) => {
     {/* <h3>{resData.cusine.join(",")}</h3> */}
     <h4>{resData.rating} stars</h4>
     <h4>{resData.prepTimeMinutes} minutes</h4>
+    <h4>{userLoggedIn}</h4>
   </div>
   )
 }

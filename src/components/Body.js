@@ -2,7 +2,8 @@ import CardComponent, {withPromotedCardComp} from "./Card";
 import Shimmer from "./Shimmer";
 import { Link } from 'react-router';
 // import resData from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   // to maintain the original state
@@ -12,6 +13,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const PromotedCardComp = withPromotedCardComp(CardComponent);
+  const { userLoggedIn, setUserInfo } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -53,6 +55,13 @@ const Body = () => {
       style={{ border: "1px solid white", cursor: "pointer"}} >
       Search
     </button>
+    <div className="flex m-2 px-2">
+      <label>Username :</label>
+      <input type="text"
+             className="border-white border-2 cursor-pointer ml-1"
+             value={userLoggedIn}
+             onChange={(e) => {setUserInfo(e.target.value)}}  />
+    </div>
       {/* <button onClick={(count) ? (
         () => {           // for filteringout data above rating 4
         const filterData = listOfRestraunt.filter((res) => res.rating > 4);
