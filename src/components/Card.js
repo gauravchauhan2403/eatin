@@ -1,11 +1,19 @@
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 // const CardComponent = ({resData}) => {     /** this is destructuring on the fly */
 const CardComponent = (props) => {
   const {resData} = props;              /**destructuring of props object, here resData is itself a object */
 
   const { userLoggedIn } = useContext(UserContext);
+
+  const dispatch = useDispatch();
+
+  const handleClick = (resData) => {
+    dispatch(addItem(resData))
+  }
 
 
   return (
@@ -16,7 +24,15 @@ const CardComponent = (props) => {
     {/* <h3>{resData.cusine.join(",")}</h3> */}
     <h4>{resData.rating} stars</h4>
     <h4>{resData.prepTimeMinutes} minutes</h4>
-    <h4>{userLoggedIn}</h4>
+    <div className="container flex justify-between text-center">
+      <h4>{userLoggedIn}</h4>
+      <button className="px-1 bg-green-300 text-black font-bold"
+              onClick={()=> handleClick(resData)}
+      >
+        Add +
+      </button>
+    </div>
+    
   </div>
   )
 }

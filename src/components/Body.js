@@ -79,9 +79,9 @@ const Body = () => {
       </button> */}
       <div className="body_container">
         {filteredResData.map((restraunt) => (
-          <Link className="linktag" key={restraunt.id} to={'/ingredients/'+ restraunt.id}>
-            {(restraunt.id % 4 === 0) ? <PromotedCardComp resData={restraunt} /> : <CardComponent resData={restraunt} />}
-          </Link>
+          // <Link className="linktag" key={restraunt.id} to={'/ingredients/'+ restraunt.id}>
+            (restraunt.id % 4 === 0) ? <PromotedCardComp  key={restraunt.id} resData={restraunt} /> : <CardComponent  key={restraunt.id} resData={restraunt} />
+          // </Link>
         ))}
       </div>
     </>
