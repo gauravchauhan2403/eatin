@@ -22,7 +22,7 @@ const Body = () => {
   const fetchData = async() =>  {
     const data = await fetch("https://dummyjson.com/recipes");
     const jsonData = await data.json();
-    console.log(jsonData)
+    // console.log("List ka data",jsonData)
 
     setListOfRestraunt(jsonData.recipes);
     setFilterResData(jsonData.recipes);
@@ -40,6 +40,7 @@ const Body = () => {
     <>
     <input
       type="text"
+      data-testid="searchInput"
       className="input_search"
       value={searchText}
       onChange={(e)=>{setSearchText(e.target.value)}}
