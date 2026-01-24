@@ -8,6 +8,7 @@ const CardComponent = (props) => {
   const {resData} = props;              /**destructuring of props object, here resData is itself a object */
 
   const { userLoggedIn } = useContext(UserContext);
+  // console.log(resData);
 
   const dispatch = useDispatch();
 

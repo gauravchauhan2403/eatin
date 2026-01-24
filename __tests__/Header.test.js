@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
-import appStore from "../src/utils/appStore";
+import appStore from "../src/utils/appStore.js";
 import Header from "../src/components/Header.js";
 import { BrowserRouter } from "react-router";
 import "@testing-library/jest-dom";
