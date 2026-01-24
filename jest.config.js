@@ -31,6 +31,11 @@ const config = {
   //   "/node_modules/"
   // ],
 
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mock__/MockFile.js",
+  },
+
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
 

@@ -1,22 +1,24 @@
 // import Logo from "../assets/images.jpeg"; gives issue in parcel so use below one
-const logo = new URL("../../assets/images.jpeg", import.meta.url).href;
+// const logo = new URL("../../assets/images.jpeg", import.meta.url).href;
+import logo from "../assets/images.jpeg";
 import { useState} from "react";
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
 
 
 const Header = () => {
+  console.log("logo ki value",logo);
   const [toggleBtn, setToggleBtn] = useState(true);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   function handleClick() {
     setToggleBtn(!toggleBtn);
   }
   return (
   <div className="head_container">
-    <img className="logo" alt="logo" src={logo} />
+    <img className="logo" alt="logo" src='/images.jpeg' />
     <ul className="nav_list">
       <li><Link className="linktag" to="./">Home</Link></li>
       <li><Link className="linktag" to="./about">AboutUs</Link></li>
