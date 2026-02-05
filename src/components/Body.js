@@ -38,30 +38,34 @@ const Body = () => {
   // condtional rendering
   return listOfRestraunt.length === 0 ? <Shimmer /> : (
     <>
-    <input
-      type="text"
-      data-testid="searchInput"
-      className="input_search"
-      value={searchText}
-      onChange={(e)=>{setSearchText(e.target.value)}}
-    />
-    <button className="search_Button" 
-      onClick={() => { 
-        const filteredResData = listOfRestraunt.filter((res) =>
-          res.name.toLowerCase().includes(searchText.toLowerCase())
-        );
-        // console.log(filteredResData)
-        // console.log(searchText)
-        setFilterResData(filteredResData)}}
-      style={{ border: "1px solid white", cursor: "pointer"}} >
-      Search
-    </button>
-    <div className="flex m-2 px-2">
-      <label>Username :</label>
-      <input type="text"
-             className="border-white border-2 cursor-pointer ml-1"
-             value={userLoggedIn}
-             onChange={(e) => {setUserInfo(e.target.value)}}  />
+    <div className="flex justify-around">
+      <div className="flex">
+        <input
+        type="text"
+        data-testid="searchInput"
+        className="input_search border-2 border-amber-100"
+        value={searchText}
+        onChange={(e)=>{setSearchText(e.target.value)}}
+      />
+      <button className="search_Button ml-1 p-2" 
+        onClick={() => { 
+          const filteredResData = listOfRestraunt.filter((res) =>
+            res.name.toLowerCase().includes(searchText.toLowerCase())
+          );
+          // console.log(filteredResData)
+          // console.log(searchText)
+          setFilterResData(filteredResData)}}
+        style={{ border: "1px solid white", cursor: "pointer"}} >
+        Search
+      </button>
+      </div>
+      <div className="flex m-2 px-2">
+        <label>Username :</label>
+        <input type="text"
+              className="border-white border-2 cursor-pointer ml-1"
+              value={userLoggedIn}
+              onChange={(e) => {setUserInfo(e.target.value)}}  />
+      </div>
     </div>
       {/* <button onClick={(count) ? (
         () => {           // for filteringout data above rating 4
